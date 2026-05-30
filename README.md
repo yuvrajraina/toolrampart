@@ -2,11 +2,6 @@
 
 ToolRampart is a small Python framework for exposing normal Python functions as safe AI-agent tools and MCP-compatible tools.
 
-Positioning:
-
-- FastAPI for safe AI tools.
-- Give agents tools without giving them unrestricted production access.
-
 It is not an agent framework, chatbot framework, or LangChain replacement. It is a developer-first safety layer around tool execution.
 
 ## Alpha Status
@@ -256,14 +251,4 @@ Then open `http://localhost:8000/dashboard`.
 
 ToolRampart controls whether a tool function is called. It does not magically sandbox all side effects inside the function. For dangerous tools, combine ToolRampart with least-privilege service credentials, network controls, execution timeouts, and approval workflows.
 
-## Release Readiness
-
-Before publishing an alpha, run the release checklist in `docs/RELEASE.md`. The short version is:
-
-```bash
-python -m pip install -e ".[dev,docs]"
-python -m pytest
-python -m mkdocs build --strict
-python -m build
-python -m twine check dist/*
 ```
