@@ -45,13 +45,13 @@ dependencies = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/toolrampart/toolrampart"
-Documentation = "https://toolrampart.dev/"
-Issues = "https://github.com/toolrampart/toolrampart/issues"
-Docs = "https://toolrampart.dev/"
-Source = "https://github.com/toolrampart/toolrampart"
-Changelog = "https://github.com/toolrampart/toolrampart/blob/main/CHANGELOG.md"
-Security = "https://github.com/toolrampart/toolrampart/security/policy"
+Homepage = "https://github.com/yuvrajraina/toolrampart"
+Documentation = "https://toolrampart.yuvrajraina.com/"
+Issues = "https://github.com/yuvrajraina/toolrampart/issues"
+Docs = "https://toolrampart.yuvrajraina.com/"
+Source = "https://github.com/yuvrajraina/toolrampart"
+Changelog = "https://github.com/yuvrajraina/toolrampart/blob/main/CHANGELOG.md"
+Security = "https://github.com/yuvrajraina/toolrampart/security/policy"
 
 [project.optional-dependencies]
 dev = [

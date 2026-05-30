@@ -55,7 +55,7 @@ Use ToolRampart when an AI agent needs controlled access to production-like acti
 
 ## Release And Security References
 
-- [Security Notes](https://toolrampart.dev/SECURITY/)
-- [Threat Model](https://toolrampart.dev/THREAT_MODEL/)
-- [Production Checklist](https://toolrampart.dev/PRODUCTION_CHECKLIST/)
-- [Release Process](https://toolrampart.dev/RELEASE/)
+- [Security Notes](https://toolrampart.yuvrajraina.com/SECURITY/)
+- [Threat Model](https://toolrampart.yuvrajraina.com/THREAT_MODEL/)
+- [Production Checklist](https://toolrampart.yuvrajraina.com/PRODUCTION_CHECKLIST/)
+- [Release Process](https://toolrampart.yuvrajraina.com/RELEASE/)

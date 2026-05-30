@@ -4,8 +4,8 @@ message: If you use ToolRampart, please cite the project repository.
 type: software
 authors:
   - name: ToolRampart Contributors
-repository-code: https://github.com/toolrampart/toolrampart
-url: https://toolrampart.dev/
+repository-code: https://github.com/yuvrajraina/toolrampart
+url: https://toolrampart.yuvrajraina.com/
 abstract: FastAPI for safe AI tools. Expose Python functions as AI-agent and MCP-compatible tools with validation, scopes, approvals, idempotency, isolation, audit logs, and observability.
 keywords:
   - ai-agents

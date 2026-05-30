@@ -4,7 +4,7 @@ ToolRampart is security-sensitive software. Please report vulnerabilities privat
 
 ## Reporting
 
-Email: security@toolrampart.dev
+Email: security@yuvrajraina.com
 
 Include:
 

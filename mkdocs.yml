@@ -1,9 +1,9 @@
 site_name: ToolRampart
-site_url: https://toolrampart.dev/
+site_url: https://toolrampart.yuvrajraina.com/
 site_description: FastAPI for safe AI tools. Expose Python functions as AI-agent and MCP tools with approvals, scopes, audit logs, idempotency, isolation, and observability.
 site_author: ToolRampart Contributors
-repo_name: toolrampart/toolrampart
-repo_url: https://github.com/toolrampart/toolrampart
+repo_name: yuvrajraina/toolrampart
+repo_url: https://github.com/yuvrajraina/toolrampart
 edit_uri: edit/main/docs/
 copyright: Copyright &copy; 2026 ToolRampart Contributors
 
@@ -39,7 +39,7 @@ markdown_extensions:
 extra:
   social:
     - icon: fontawesome/brands/github
-      link: https://github.com/toolrampart/toolrampart
+      link: https://github.com/yuvrajraina/toolrampart
   generator: false
 
 nav:
