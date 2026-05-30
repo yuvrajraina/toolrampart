@@ -1,0 +1,42 @@
+# ToolRampart
+
+> FastAPI for safe AI tools. Expose Python functions as AI-agent and MCP-compatible tools with scopes, approvals, rate limits, idempotency, isolation, audit logs, and OpenTelemetry.
+
+ToolRampart is an open-source Python developer framework. It is not a chatbot framework, not a full agent framework, and not a LangChain replacement.
+
+## Start Here
+
+- [Overview](https://toolrampart.dev/): Project purpose, install command, and minimal tool example.
+- [Quickstart](https://toolrampart.dev/quickstart/): Create a safe tool and run it as an API.
+- [Safety Model](https://toolrampart.dev/concepts/safety-model/): Execution pipeline and trust boundary.
+- [Tool Policies](https://toolrampart.dev/concepts/policies/): Scopes, approvals, redaction, rate limits, custom policies, timeouts, and isolation.
+- [Python Client](https://toolrampart.dev/CLIENT/): HTTP client SDK for invoking tools and resolving approvals.
+- [MCP](https://toolrampart.dev/MCP/): Running ToolRampart as an MCP server.
+- [Deployment](https://toolrampart.dev/DEPLOYMENT/): Docker Compose, Postgres, Redis, and production notes.
+- [Security](https://toolrampart.dev/SECURITY/): Security model, limitations, and operational guidance.
+- [Threat Model](https://toolrampart.dev/THREAT_MODEL/): Assets, trust boundaries, threats, and non-goals.
+- [Production Checklist](https://toolrampart.dev/PRODUCTION_CHECKLIST/): Production readiness checklist.
+- [Release Process](https://toolrampart.dev/RELEASE/): Alpha release gates and publishing steps.
+
+## Examples
+
+- [Read-only SQL Tool](https://toolrampart.dev/examples/read-only-sql/): Safe SELECT-only SQLite tool.
+- [CRM Update With Approval](https://toolrampart.dev/examples/crm-update/): Update customer contact data with approval and redaction.
+- [GitHub Issue Creator](https://toolrampart.dev/examples/github-issue/): External API tool with rate limits and idempotency.
+- [Isolated Long Job](https://toolrampart.dev/examples/isolated-job/): Subprocess-isolated job with killable timeout.
+- [Destructive Admin Policy](https://toolrampart.dev/examples/destructive-admin/): Block risky admin actions unless policy conditions pass.
+- [MCP Client Usage](https://toolrampart.dev/examples/mcp-client/): How MCP clients should pass approvals and idempotency keys.
+
+## Repository
+
+- GitHub: https://github.com/toolrampart/toolrampart
+- PyPI distribution: `toolrampart`
+- Python import package: `toolrampart`
+- Python: 3.11+
+
+## AI Agent Instructions
+
+- Read [Agent Guide](https://toolrampart.dev/agents/) before generating integration code.
+- Always use idempotency keys for write tools.
+- Do not bypass `ToolRampart.invoke`, REST invocation, or MCP invocation.
+- Do not claim ToolRampart is a sandbox for arbitrary unsafe credentials.

@@ -1,0 +1,16 @@
+[auth]
+required = false
+trust_headers = false
+
+[execution]
+timeout_seconds = 30
+max_retries = 0
+
+[storage]
+storage_url = "postgresql://toolrampart:toolrampart@postgres:5432/toolrampart"
+redis_url = "redis://redis:6379/0"
+retention_days = 90
+
+[telemetry]
+enabled = true
+service_name = "toolrampart"

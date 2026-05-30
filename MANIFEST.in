@@ -1,0 +1,21 @@
+include AGENTS.md
+include CHANGELOG.md
+include CODE_OF_CONDUCT.md
+include CONTRIBUTING.md
+include CITATION.cff
+include Dockerfile
+include docker-compose.yml
+include llms.txt
+include llms-full.txt
+include mkdocs.yml
+include SECURITY.md
+recursive-include docs *
+recursive-include examples *
+recursive-include .github *
+global-exclude __pycache__/*
+global-exclude *.py[cod]
+global-exclude .DS_Store
+prune site
+prune build
+prune dist
+prune .pytest_cache

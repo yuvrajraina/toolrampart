@@ -1,0 +1,55 @@
+services:
+  toolrampart:
+    build: .
+    command:
+      - toolrampart
+      - serve
+      - examples.refund_tool
+      - --host
+      - 0.0.0.0
+      - --port
+      - "8000"
+      - --config
+      - /app/examples/toolrampart.compose.toml
+    ports:
+      - "8000:8000"
+    environment:
+      TOOLRAMPART_STORAGE_URL: postgresql://toolrampart:toolrampart@postgres:5432/toolrampart
+      TOOLRAMPART_REDIS_URL: redis://redis:6379/0
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+
+  postgres:
+    image: postgres:16
+    environment:
+      POSTGRES_DB: toolrampart
+      POSTGRES_USER: toolrampart
+      POSTGRES_PASSWORD: toolrampart
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U toolrampart -d toolrampart"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  redis:
+    image: redis:7
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis-data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  postgres-data:
+  redis-data:

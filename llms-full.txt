@@ -1,0 +1,85 @@
+# ToolRampart Full LLM Context
+
+ToolRampart is an open-source Python 3.11+ framework for exposing normal Python functions as safe AI-agent tools and MCP-compatible tools.
+
+Install distribution: `toolrampart`
+Python import package: `toolrampart`
+
+Core positioning:
+
+- FastAPI for safe AI tools.
+- Give agents tools without giving them unrestricted production access.
+
+ToolRampart is not a chatbot framework, not a full agent framework, and not a LangChain replacement.
+
+## Core Developer API
+
+```python
+from toolrampart import (
+    ToolRampart,
+    ToolRampartClient,
+    ToolContext,
+    isolated_process,
+    max_retries,
+    policy,
+    rate_limit,
+    redact,
+    require_approval,
+    scope,
+    side_effects,
+    timeout,
+    tool,
+)
+```
+
+## Safety Pipeline
+
+Every tool call can be validated, scoped, policy-checked, approval-gated, rate-limited, deduplicated with idempotency keys, executed with timeouts/retries/subprocess isolation, output-validated, traced, and audited with redaction.
+
+## Minimal Example
+
+```python
+from toolrampart import rate_limit, redact, require_approval, scope, side_effects, tool
+
+@tool
+@scope("billing.refund")
+@require_approval(over_amount=500)
+@redact(["email", "phone", "api_key"])
+@rate_limit("10/hour/user")
+@side_effects(money_movement=True, writes_data=True)
+def refund_user(user_id: str, amount: float, reason: str) -> dict:
+    return {
+        "status": "refund_started",
+        "user_id": user_id,
+        "amount": amount,
+        "reason": reason,
+    }
+```
+
+## Important Files
+
+- `README.md`
+- `AGENTS.md`
+- `docs/index.md`
+- `docs/quickstart.md`
+- `docs/concepts/safety-model.md`
+- `docs/CLIENT.md`
+- `docs/MCP.md`
+- `docs/SECURITY.md`
+- `docs/THREAT_MODEL.md`
+- `docs/PRODUCTION_CHECKLIST.md`
+- `docs/RELEASE.md`
+- `examples/refund_tool.py`
+- `examples/read_only_sql_tool.py`
+- `examples/crm_update_tool.py`
+- `examples/github_issue_tool.py`
+- `examples/isolated_long_job.py`
+- `examples/destructive_admin_tool.py`
+
+## Agent Rules
+
+- Use ToolRampart's execution pipeline rather than calling risky functions directly.
+- Use idempotency keys for write tools.
+- Use approvals for risky or destructive actions.
+- Use least-privilege credentials inside tool functions.
+- Do not present ToolRampart as a sandbox for arbitrary unsafe production access.

@@ -1,0 +1,61 @@
+# ToolRampart Full LLM Context
+
+ToolRampart is a Python 3.11+ framework for safely exposing Python functions as AI-agent tools and MCP-compatible tools.
+
+Install distribution: `toolrampart`
+Python import package: `toolrampart`
+
+Core positioning:
+
+- FastAPI for safe AI tools.
+- Give agents tools without giving them unrestricted production access.
+
+ToolRampart is not a full agent framework, not a chatbot framework, and not a LangChain replacement.
+
+## Safety Pipeline
+
+Every tool call can be validated, scoped, checked by policy, approval-gated, rate-limited, deduplicated by idempotency key, executed with timeouts and optional subprocess isolation, output-validated, traced, and audited with redaction.
+
+## Minimal Example
+
+```python
+from toolrampart import rate_limit, redact, require_approval, scope, side_effects, tool
+
+@tool
+@scope("billing.refund")
+@require_approval(over_amount=500)
+@redact(["email", "phone", "api_key"])
+@rate_limit("10/hour/user")
+@side_effects(money_movement=True, writes_data=True)
+def refund_user(user_id: str, amount: float, reason: str) -> dict:
+    return {
+        "status": "refund_started",
+        "user_id": user_id,
+        "amount": amount,
+        "reason": reason,
+    }
+```
+
+## REST Endpoints
+
+- `GET /health`
+- `GET /tools`
+- `GET /mcp/tools`
+- `POST /tools/{tool_name}/invoke`
+- `GET /approvals`
+- `POST /approvals/{approval_id}/approve`
+- `POST /approvals/{approval_id}/reject`
+- `GET /audit`
+- `GET /metrics`
+- `GET /dashboard`
+
+## Agent Guidance
+
+Use ToolRampart when an AI agent needs controlled access to production-like actions. Always preserve safety decorators and idempotency keys for writes. Never call the underlying Python functions directly from an agent runtime when safety checks are required.
+
+## Release And Security References
+
+- [Security Notes](https://toolrampart.dev/SECURITY/)
+- [Threat Model](https://toolrampart.dev/THREAT_MODEL/)
+- [Production Checklist](https://toolrampart.dev/PRODUCTION_CHECKLIST/)
+- [Release Process](https://toolrampart.dev/RELEASE/)

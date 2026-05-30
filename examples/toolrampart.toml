@@ -1,0 +1,21 @@
+[auth]
+required = false
+trust_headers = false
+
+[auth.api_keys]
+"dev-secret" = { actor = "local-agent", scopes = ["billing.refund"] }
+
+[auth.hashed_api_keys]
+# "prod-key-2026-05" = { actor = "prod-agent", scopes = ["billing.*"], hash = "pbkdf2_sha256$...", active = true }
+
+[execution]
+timeout_seconds = 30
+max_retries = 0
+
+[storage]
+audit_path = ".toolrampart/audit.db"
+retention_days = 90
+
+[telemetry]
+enabled = true
+service_name = "toolrampart"

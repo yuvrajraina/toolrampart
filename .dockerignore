@@ -1,0 +1,8 @@
+.git
+.pytest_cache
+__pycache__
+*.pyc
+.toolrampart
+dist
+build
+*.egg-info

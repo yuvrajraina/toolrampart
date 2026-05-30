@@ -1,0 +1,52 @@
+# ToolRampart
+
+> FastAPI for safe AI tools. Expose Python functions as AI-agent and MCP-compatible tools with scopes, approvals, rate limits, idempotency, subprocess isolation, audit logs, and OpenTelemetry.
+
+Repository: https://github.com/toolrampart/toolrampart
+Documentation: https://toolrampart.dev/
+PyPI distribution: `toolrampart`
+Python import package: `toolrampart`
+Python: 3.11+
+
+## Read First
+
+- [README](README.md): Project overview and install instructions.
+- [Agent Guide](AGENTS.md): Guidance for AI coding agents working in this repository.
+- [Docs Index](docs/index.md): Documentation site home.
+- [Quickstart](docs/quickstart.md): Create and run a safe AI tool.
+- [Safety Model](docs/concepts/safety-model.md): Execution pipeline and trust boundary.
+- [Client SDK](docs/CLIENT.md): HTTP client usage.
+- [MCP](docs/MCP.md): MCP server usage.
+- [Security](docs/SECURITY.md): Security model and limitations.
+- [Threat Model](docs/THREAT_MODEL.md): Assets, trust boundaries, threats, and non-goals.
+- [Production Checklist](docs/PRODUCTION_CHECKLIST.md): Production readiness controls.
+- [Release Process](docs/RELEASE.md): Alpha release gates and publishing steps.
+
+## Core APIs
+
+```python
+from toolrampart import (
+    tool,
+    scope,
+    require_approval,
+    redact,
+    rate_limit,
+    policy,
+    timeout,
+    max_retries,
+    isolated_process,
+    side_effects,
+    ToolContext,
+    ToolRampartClient,
+)
+```
+
+## Examples
+
+- `examples/refund_tool.py`
+- `examples/read_only_sql_tool.py`
+- `examples/crm_update_tool.py`
+- `examples/github_issue_tool.py`
+- `examples/isolated_long_job.py`
+- `examples/destructive_admin_tool.py`
+- `examples/mcp_client_usage.py`
